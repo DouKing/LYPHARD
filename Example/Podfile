@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LYPHARD_Example' do
+  pod 'LYPHARD', :path => '../'
+
+  target 'LYPHARD_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
