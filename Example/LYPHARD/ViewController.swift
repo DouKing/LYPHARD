@@ -7,12 +7,29 @@
 //
 
 import UIKit
+import LYPHARD
+import Alamofire
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        LaunchActivityRequest().start { (succeed: Bool, error: RequestError?, json: Any?, model: LaunchActivityModel?, response: DataResponse<Any>) in
+            guard succeed else {
+                debugPrint(error ?? "")
+                return
+            }
+            debugPrint("-----")
+            if let json = json {
+                debugPrint(json)
+            }
+            if let model = model {
+                debugPrint(model.imgUrl)
+                debugPrint(model.redirectUrl)
+            }
+
+            debugPrint(response.response?.statusCode ?? -1)
+        }
     }
 
     override func didReceiveMemoryWarning() {
