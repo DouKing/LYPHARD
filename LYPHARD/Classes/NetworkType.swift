@@ -10,7 +10,7 @@ import CoreTelephony
 import Alamofire
 
 public enum NetworkType: Int {
-    typealias RawValue = Int
+    public typealias RawValue = Int
 
     case unknown            = 0
     case notReachable       = 1
@@ -59,8 +59,8 @@ public enum NetworkType: Int {
     }
 }
 
-public extension NetworkType: CustomStringConvertible {
-    var description: String {
+extension NetworkType: CustomStringConvertible {
+    public var description: String {
         switch self {
         case .unknown:
             return "Unknown"
@@ -80,7 +80,7 @@ public extension NetworkType: CustomStringConvertible {
     }
 }
 
-public extension NetworkType {
+extension NetworkType {
     private static let map: [String: NetworkType] = [
         CTRadioAccessTechnologyGPRS: .via2G,
         CTRadioAccessTechnologyEdge: .via2G,
