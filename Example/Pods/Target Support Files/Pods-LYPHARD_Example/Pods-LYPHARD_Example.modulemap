@@ -1,6 +1,0 @@
-framework module Pods_LYPHARD_Example {
-  umbrella header "Pods-LYPHARD_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

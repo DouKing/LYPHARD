@@ -1,6 +1,0 @@
-framework module Pods_LYPHARD_Tests {
-  umbrella header "Pods-LYPHARD_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
