@@ -21,7 +21,7 @@ public enum NetworkType: Int {
     case via4G              = 6
 
     static var current: NetworkType {
-        guard let status = NetworkReachabilityManager()?.networkReachabilityStatus else {
+        guard let status = NetworkReachabilityManager()?.status else {
             return .unknown
         }
         switch status {
@@ -30,7 +30,7 @@ public enum NetworkType: Int {
         case .reachable(let type):
             switch type {
             case .ethernetOrWiFi: return .viaWiFi
-            case .wwan:
+            case .cellular:
                 guard let technology = CTTelephonyNetworkInfo().currentRadioAccessTechnology else {
                     return .via4G
                 }
